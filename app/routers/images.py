@@ -15,10 +15,12 @@ router = APIRouter(prefix="/images", tags=["images"])
 
 
 @router.get("", response_model=list[ImageOut])
-def list_images(db: Session = Depends(get_db), tag_status: str | None = None):
+def list_images(db: Session = Depends(get_db), tag_status: TagStatus | None = None):
+    # tag_status typed as the enum (not str) so FastAPI/Pydantic validates it
+    # at the boundary -- an unknown value is a clean 422, never a 500.
     q = db.query(Image)
     if tag_status:
-        q = q.filter(Image.tag_status == TagStatus(tag_status))
+        q = q.filter(Image.tag_status == tag_status)
     return q.order_by(Image.id).all()
 
 

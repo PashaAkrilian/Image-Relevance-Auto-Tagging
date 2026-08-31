@@ -106,6 +106,24 @@ pre-built image) to prove the README's own instructions work verbatim:
   Practical takeaway, also noted in `DESIGN.md`: `VISION_CONFIDENCE_
   THRESHOLD` is a per-model, per-run calibration, not a universal constant.
 
+## Post-deploy boundary-validation sweep
+
+After the Docker validation run, went through the shared requirement
+"validation at the boundary -- bad input → clean 4xx, never a 500" against
+the live container deliberately, rather than assuming FastAPI/Pydantic
+covered every route by construction. Found one real gap:
+`GET /images?tag_status=<garbage>` returned a **500**, not a 4xx --
+`app/routers/images.py` took `tag_status` as a plain `str` and manually
+called `TagStatus(tag_status)` inside the handler, so an unrecognized
+value raised an uncaught `ValueError`. Fixed by typing the parameter as
+`TagStatus | None` directly, letting FastAPI/Pydantic validate it at the
+boundary the same way every other typed parameter in this codebase is
+validated -- now a clean `422`. Verified live (`curl` before and after)
+and re-swept every other route for the same "manual `Enum(raw_str)`
+inside a handler" pattern (`app/routers/review.py`'s two call sites were
+already safe -- their input comes from a Pydantic field with a regex
+`pattern`, so it can never reach the enum constructor with a bad value).
+
 ## Deliberate deviation from the brief, logged for transparency
 
 - **Image source: Wikimedia Commons instead of Unsplash/Pexels.** Both

@@ -244,9 +244,16 @@ $ curl -X POST http://localhost:8000/review/suggestions/1851/decision \
 $ curl http://localhost:8000/review/pending | wc  # confirms count dropped 92 -> 91
 ```
 
-Bad-input validation at the boundary (Pydantic `pattern` on `decision`,
-enum coercion on `image_id`/`tag_status` query params) returns a clean
-`422`, never a 500, for malformed review decisions or unknown enum values.
+### ✅ Validation at the boundary -- bad input → clean 4xx, never a 500 (shared requirement #2)
+
+```
+GET  /images?tag_status=bogus                                -> 422  (was a 500 until this was caught and fixed -- see BUILDLOG.md)
+GET  /images?tag_status=valid                                 -> 200
+GET  /images/notanumber                                       -> 422
+GET  /images/99999                                             -> 404
+POST /review/suggestions/1/decision  {"decision":"maybe"}     -> 422
+POST /review/suggestions/1/decision  not-json                 -> 422
+```
 
 ---
 
