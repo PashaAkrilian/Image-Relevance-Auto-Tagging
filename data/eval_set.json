@@ -1,0 +1,65 @@
+{
+  "_comment": "Hand-labeled eval set (brief section 6/13, PROBE 5). Each post's expected_category is the ground truth used only by scripts/run_eval.py to score top-1 precision -- it is never read by the guard itself, which only ever sees the post's title/body text and the image corpus's own vision tags.",
+  "posts": [
+    {
+      "title": "The Secret Life of Red Foxes",
+      "body": "Red foxes are among the most adaptable predators on the planet, thriving everywhere from remote forests to busy suburbs. A red fox hunts mostly at dawn and dusk, using its keen hearing to locate small rodents under snow or leaf litter. Despite their name, individual foxes can range from deep russet to nearly black, but the white-tipped tail remains a reliable identifier.",
+      "expected_category": "fox"
+    },
+    {
+      "title": "Vulpes Vulpes: Understanding the Common Red Fox",
+      "body": "Vulpes vulpes, commonly known as the red fox, is the largest of the true foxes and the most widely distributed carnivore in the world. Biologists studying vulpes vulpes populations have found that litters typically number four to six kits, born in underground dens dug by the parents.",
+      "expected_category": "fox"
+    },
+    {
+      "title": "Urban Foxes: How Red Foxes Adapt to City Life",
+      "body": "Over the past few decades, red foxes have quietly moved into cities across the northern hemisphere. An urban fox will happily raid compost bins, den under garden sheds, and cross busy streets after midnight when traffic is light.",
+      "expected_category": "fox"
+    },
+    {
+      "title": "Why Gray Wolves Are Making a Comeback",
+      "body": "After decades of decline, gray wolf populations are rebounding across parts of North America and Europe. Conservationists credit reintroduction programs and stronger legal protections for the recovery of Canis lupus in regions where wolves had been absent for generations.",
+      "expected_category": "wolf"
+    },
+    {
+      "title": "Pack Hunters: How Wolves Coordinate in the Wild",
+      "body": "A wolf pack is a tightly coordinated hunting unit, often led by a breeding pair that directs the chase. Wolves communicate through howls, body posture, and scent marking, allowing a pack to take down prey many times the size of a single wolf.",
+      "expected_category": "wolf"
+    },
+    {
+      "title": "The Howl of the Wolf: Communication in Wolf Packs",
+      "body": "The howl of a wolf can carry for miles across open terrain, serving to rally pack members and warn rival wolves away from a territory. Researchers have identified distinct howl patterns that individual wolves use to identify themselves to the rest of the pack.",
+      "expected_category": "wolf"
+    },
+    {
+      "title": "The Loyal Companion: A Guide to Dog Breeds",
+      "body": "From tiny terriers to giant mastiffs, the domestic dog comes in an astonishing range of sizes and temperaments. Choosing the right dog breed depends on your living situation, activity level, and how much time you can dedicate to training and companionship.",
+      "expected_category": "dog"
+    },
+    {
+      "title": "Training Your New Puppy: The First 30 Days",
+      "body": "The first month with a new puppy sets the tone for the rest of your dog's life. Consistent house-training, short positive reinforcement sessions, and early socialization with other dogs and people all help a puppy grow into a confident, well-adjusted adult dog.",
+      "expected_category": "dog"
+    },
+    {
+      "title": "Brown Bears and Their Winter Hibernation",
+      "body": "As autumn temperatures drop, brown bears enter a period of intense feeding known as hyperphagia, packing on fat reserves before winter. A brown bear can lose up to a third of its body weight during hibernation, emerging in spring lean and hungry.",
+      "expected_category": "bear"
+    },
+    {
+      "title": "Grizzly Encounters: Staying Safe in Bear Country",
+      "body": "Hikers in grizzly bear country are advised to carry bear spray, make noise on the trail, and store food away from their campsite. A brown bear surprised at close range is far more dangerous than one that has time to identify a hiker and move away.",
+      "expected_category": "bear"
+    },
+    {
+      "title": "Red Deer Migration Patterns in Autumn",
+      "body": "Each autumn, herds of red deer move from high mountain pastures down into sheltered valleys ahead of the first heavy snowfall. This seasonal migration of deer is timed closely with the rutting season, when stags compete loudly for access to hinds.",
+      "expected_category": "deer"
+    },
+    {
+      "title": "The Antlers of the Stag: A Red Deer Life Cycle",
+      "body": "A red deer stag grows and sheds a new set of antlers every year, with each generation typically larger than the last until the animal reaches old age. The annual antler cycle of the deer is driven by seasonal changes in testosterone.",
+      "expected_category": "deer"
+    }
+  ]
+}
