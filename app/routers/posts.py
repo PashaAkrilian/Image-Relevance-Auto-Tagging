@@ -61,9 +61,10 @@ def trigger_post_embedding_batch(
     db: Session = Depends(get_db),
     settings: Settings = Depends(get_settings),
 ):
-    post_ids = [row.id for row in db.query(Post.id).all()]
+    # Resumable: only (re-)embed posts that don't already have a vector.
+    post_ids = [row.id for row in db.query(Post.id).filter(Post.embedding.is_(None)).all()]
     if not post_ids:
-        raise HTTPException(status_code=400, detail="no posts to embed; run the seed script first")
+        raise HTTPException(status_code=400, detail="no posts left to embed")
 
     def _run():
         run_batch(

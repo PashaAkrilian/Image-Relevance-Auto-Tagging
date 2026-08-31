@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "category": "fox",
+    "file_path": "data/corpus/fox/fox_01.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:2008-08-28_Red_Fox_kit.jpg",
+    "license": "Public domain",
+    "title": "File:2008-08-28 Red Fox kit.jpg"
+  },
+  {
+    "id": 2,
+    "category": "fox",
+    "file_path": "data/corpus/fox/fox_02.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Attentive_Fox_(52582112598).jpg",
+    "license": "Public domain",
+    "title": "File:Attentive Fox (52582112598).jpg"
+  },
+  {
+    "id": 3,
+    "category": "fox",
+    "file_path": "data/corpus/fox/fox_03.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Baby_Red_Fox_-_DPLA_-_7a33f4e6561c7a4aa7eb30e6c088b788.jpg",
+    "license": "Public domain",
+    "title": "File:Baby Red Fox - DPLA - 7a33f4e6561c7a4aa7eb30e6c088b788.jpg"
+  },
+  {
+    "id": 4,
+    "category": "fox",
+    "file_path": "data/corpus/fox/fox_04.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coyote_(7000602594).jpg",
+    "license": "Public domain",
+    "title": "File:Coyote (7000602594).jpg"
+  },
+  {
+    "id": 5,
+    "category": "fox",
+    "file_path": "data/corpus/fox/fox_05.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fox_trapping_USFW.jpg",
+    "license": "Public domain",
+    "title": "File:Fox trapping USFW.jpg"
+  },
+  {
+    "id": 6,
+    "category": "fox",
+    "file_path": "data/corpus/fox/fox_06.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Quizzical_red_fox_-_Cleveland_Museum_of_Natural_History_(47990808958).jpg",
+    "license": "CC BY-SA 2.0",
+    "title": "File:Quizzical red fox - Cleveland Museum of Natural History (47990808958).jpg"
+  },
+  {
+    "id": 7,
+    "category": "fox",
+    "file_path": "data/corpus/fox/fox_07.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Red_Fox_(6846881313).jpg",
+    "license": "Public domain",
+    "title": "File:Red Fox (6846881313).jpg"
+  },
+  {
+    "id": 8,
+    "category": "fox",
+    "file_path": "data/corpus/fox/fox_08.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Red_Fox_(Vulpes_vulpes)_(4).jpg",
+    "license": "CC BY-SA 3.0",
+    "title": "File:Red Fox (Vulpes vulpes) (4).jpg"
+  },
+  {
+    "id": 9,
+    "category": "fox",
+    "file_path": "data/corpus/fox/fox_09.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Red_Fox_(Vulpes_vulpes)_(48490223071).jpg",
+    "license": "Public domain",
+    "title": "File:Red Fox (Vulpes vulpes) (48490223071).jpg"
+  },
+  {
+    "id": 10,
+    "category": "fox",
+    "file_path": "data/corpus/fox/fox_10.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Red_Fox_(Vulpes_vulpes)_(48490226436).jpg",
+    "license": "Public domain",
+    "title": "File:Red Fox (Vulpes vulpes) (48490226436).jpg"
+  },
+  {
+    "id": 11,
+    "category": "wolf",
+    "file_path": "data/corpus/wolf/wolf_01.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:151208_Silver_Lake_wolf_(23996545119).jpg",
+    "license": "Public domain",
+    "title": "File:151208 Silver Lake wolf (23996545119).jpg"
+  },
+  {
+    "id": 12,
+    "category": "wolf",
+    "file_path": "data/corpus/wolf/wolf_02.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:200325_Indigo_wolf_(51145152781).jpg",
+    "license": "CC BY-SA 2.0",
+    "title": "File:200325 Indigo wolf (51145152781).jpg"
+  },
+  {
+    "id": 13,
+    "category": "wolf",
+    "file_path": "data/corpus/wolf/wolf_03.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:210207_MIddle_Fork_wolf_odfw_3.5x2.5_(52014798322).jpg",
+    "license": "CC BY-SA 2.0",
+    "title": "File:210207 MIddle Fork wolf odfw 3.5x2.5 (52014798322).jpg"
+  },
+  {
+    "id": 14,
+    "category": "wolf",
+    "file_path": "data/corpus/wolf/wolf_04.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:A_gray_wolf_fitted_with_a_radio_collar_is_released_into_the_wild.jpg",
+    "license": "Public domain",
+    "title": "File:A gray wolf fitted with a radio collar is released into the wild.jpg"
+  },
+  {
+    "id": 15,
+    "category": "wolf",
+    "file_path": "data/corpus/wolf/wolf_05.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Captured_gray_wolf_in_pen.jpg",
+    "license": "Public domain",
+    "title": "File:Captured gray wolf in pen.jpg"
+  },
+  {
+    "id": 16,
+    "category": "wolf",
+    "file_path": "data/corpus/wolf/wolf_06.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Female_Gray_Wolf_(6045671049).jpg",
+    "license": "CC BY-SA 2.0",
+    "title": "File:Female Gray Wolf (6045671049).jpg"
+  },
+  {
+    "id": 17,
+    "category": "wolf",
+    "file_path": "data/corpus/wolf/wolf_07.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Female_Gray_Wolf_(6045671715).jpg",
+    "license": "CC BY-SA 2.0",
+    "title": "File:Female Gray Wolf (6045671715).jpg"
+  },
+  {
+    "id": 18,
+    "category": "wolf",
+    "file_path": "data/corpus/wolf/wolf_08.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Female_Gray_Wolf_(6045672763).jpg",
+    "license": "CC BY-SA 2.0",
+    "title": "File:Female Gray Wolf (6045672763).jpg"
+  },
+  {
+    "id": 19,
+    "category": "wolf",
+    "file_path": "data/corpus/wolf/wolf_09.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:First_wolf_radio_collared_odfw_(16671812974).jpg",
+    "license": "CC BY-SA 2.0",
+    "title": "File:First wolf radio collared odfw (16671812974).jpg"
+  },
+  {
+    "id": 20,
+    "category": "wolf",
+    "file_path": "data/corpus/wolf/wolf_10.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Front_view_of_a_resting_Canis_lupus_ssp.jpg",
+    "license": "Public domain",
+    "title": "File:Front view of a resting Canis lupus ssp.jpg"
+  },
+  {
+    "id": 21,
+    "category": "dog",
+    "file_path": "data/corpus/dog/dog_01.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:20110425_German_Shepherd_Dog_8505.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:20110425 German Shepherd Dog 8505.jpg"
+  },
+  {
+    "id": 22,
+    "category": "dog",
+    "file_path": "data/corpus/dog/dog_02.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:2014_Dog_relaxing_on_a_hot_summer_day.jpg",
+    "license": "CC BY-SA 3.0",
+    "title": "File:2014 Dog relaxing on a hot summer day.jpg"
+  },
+  {
+    "id": 23,
+    "category": "dog",
+    "file_path": "data/corpus/dog/dog_03.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:A_dog_jumping_through_a_ring_of_fire_at_a_Republic_Day_celebration_in_Nagapattinam.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:A dog jumping through a ring of fire at a Republic Day celebration in Nagapattinam.jpg"
+  },
+  {
+    "id": 24,
+    "category": "dog",
+    "file_path": "data/corpus/dog/dog_04.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:A_dog_plays_in_the_water_-_Nathan_Phillips_Square.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:A dog plays in the water - Nathan Phillips Square.jpg"
+  },
+  {
+    "id": 25,
+    "category": "dog",
+    "file_path": "data/corpus/dog/dog_05.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Akita_Inu_dog.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:Akita Inu dog.jpg"
+  },
+  {
+    "id": 26,
+    "category": "dog",
+    "file_path": "data/corpus/dog/dog_06.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Alaskan_Malamute_R_Bartz.jpg",
+    "license": "CC BY-SA 2.5",
+    "title": "File:Alaskan Malamute R Bartz.jpg"
+  },
+  {
+    "id": 27,
+    "category": "dog",
+    "file_path": "data/corpus/dog/dog_07.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Autumn_Oak_-_Broadhall_Way_-_Stevenage.jpg",
+    "license": "CC BY-SA 3.0",
+    "title": "File:Autumn Oak - Broadhall Way - Stevenage.jpg"
+  },
+  {
+    "id": 28,
+    "category": "dog",
+    "file_path": "data/corpus/dog/dog_08.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Big_Dog,_Big_Dog_Clothing_Brand_Mascot.jpg",
+    "license": "CC BY 2.0",
+    "title": "File:Big Dog, Big Dog Clothing Brand Mascot.jpg"
+  },
+  {
+    "id": 29,
+    "category": "dog",
+    "file_path": "data/corpus/dog/dog_09.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cane_corso_g%C5%82owa_profil_493o.jpg",
+    "license": "CC BY-SA 3.0",
+    "title": "File:Cane corso g\u0142owa profil 493o.jpg"
+  },
+  {
+    "id": 30,
+    "category": "dog",
+    "file_path": "data/corpus/dog/dog_10.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cat_with_dog_manners_(3043446128).jpg",
+    "license": "CC BY 2.0",
+    "title": "File:Cat with dog manners (3043446128).jpg"
+  },
+  {
+    "id": 31,
+    "category": "bear",
+    "file_path": "data/corpus/bear/bear_01.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Big_brown_bear_ursus_arctos.jpg",
+    "license": "Public domain",
+    "title": "File:Big brown bear ursus arctos.jpg"
+  },
+  {
+    "id": 32,
+    "category": "bear",
+    "file_path": "data/corpus/bear/bear_02.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Black_bear_at_Anan_Wildlife_Observatory_3.jpg",
+    "license": "Public domain",
+    "title": "File:Black bear at Anan Wildlife Observatory 3.jpg"
+  },
+  {
+    "id": 33,
+    "category": "bear",
+    "file_path": "data/corpus/bear/bear_03.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brown_Bear_Cubs.jpg",
+    "license": "Public domain",
+    "title": "File:Brown Bear Cubs.jpg"
+  },
+  {
+    "id": 34,
+    "category": "bear",
+    "file_path": "data/corpus/bear/bear_04.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brown_bear_-_Tongass_National_Forest_02.jpg",
+    "license": "Public domain",
+    "title": "File:Brown bear - Tongass National Forest 02.jpg"
+  },
+  {
+    "id": 35,
+    "category": "bear",
+    "file_path": "data/corpus/bear/bear_05.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brown_bear_AK.jpg",
+    "license": "Public domain",
+    "title": "File:Brown bear AK.jpg"
+  },
+  {
+    "id": 36,
+    "category": "bear",
+    "file_path": "data/corpus/bear/bear_06.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brown_bear_animal_in_water_fishing.jpg",
+    "license": "Public domain",
+    "title": "File:Brown bear animal in water fishing.jpg"
+  },
+  {
+    "id": 37,
+    "category": "bear",
+    "file_path": "data/corpus/bear/bear_07.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brown_bear_at_rivers_edge.jpg",
+    "license": "Public domain",
+    "title": "File:Brown bear at rivers edge.jpg"
+  },
+  {
+    "id": 38,
+    "category": "bear",
+    "file_path": "data/corpus/bear/bear_08.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brown_bear_cub.jpg",
+    "license": "Public domain",
+    "title": "File:Brown bear cub.jpg"
+  },
+  {
+    "id": 39,
+    "category": "bear",
+    "file_path": "data/corpus/bear/bear_09.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brown_bear_cub_head.jpg",
+    "license": "Public domain",
+    "title": "File:Brown bear cub head.jpg"
+  },
+  {
+    "id": 40,
+    "category": "bear",
+    "file_path": "data/corpus/bear/bear_10.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brown_bear_cub_walking_into_the_water.jpg",
+    "license": "Public domain",
+    "title": "File:Brown bear cub walking into the water.jpg"
+  },
+  {
+    "id": 41,
+    "category": "deer",
+    "file_path": "data/corpus/deer/deer_01.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:008_Wildlife_Photographer_Giles_Laurent_in_a_ghillie_suit.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:008 Wildlife Photographer Giles Laurent in a ghillie suit.jpg"
+  },
+  {
+    "id": 42,
+    "category": "deer",
+    "file_path": "data/corpus/deer/deer_02.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:009_Wildlife_Photographers_in_ghillie_suits_looking_for_red_deers_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:009 Wildlife Photographers in ghillie suits looking for red deers 1.jpg"
+  },
+  {
+    "id": 43,
+    "category": "deer",
+    "file_path": "data/corpus/deer/deer_03.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:009_Wildlife_Photographers_in_ghillie_suits_looking_for_red_deers_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:009 Wildlife Photographers in ghillie suits looking for red deers 2.jpg"
+  },
+  {
+    "id": 44,
+    "category": "deer",
+    "file_path": "data/corpus/deer/deer_04.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:009_Wildlife_Photographers_in_ghillie_suits_looking_for_red_deers_3.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:009 Wildlife Photographers in ghillie suits looking for red deers 3.jpg"
+  },
+  {
+    "id": 45,
+    "category": "deer",
+    "file_path": "data/corpus/deer/deer_05.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:009_Wildlife_Photographers_in_ghillie_suits_looking_for_red_deers_4.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:009 Wildlife Photographers in ghillie suits looking for red deers 4.jpg"
+  },
+  {
+    "id": 46,
+    "category": "deer",
+    "file_path": "data/corpus/deer/deer_06.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:009_Wildlife_Photographers_in_ghillie_suits_looking_for_red_deers_5.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:009 Wildlife Photographers in ghillie suits looking for red deers 5.jpg"
+  },
+  {
+    "id": 47,
+    "category": "deer",
+    "file_path": "data/corpus/deer/deer_07.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:009_Wildlife_Photographers_in_ghillie_suits_looking_for_red_deers_6.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:009 Wildlife Photographers in ghillie suits looking for red deers 6.jpg"
+  },
+  {
+    "id": 48,
+    "category": "deer",
+    "file_path": "data/corpus/deer/deer_08.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:014_Wild_Red_Deer_Switzerland_Photo_by_Giles_Laurent.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:014 Wild Red Deer Switzerland Photo by Giles Laurent.jpg"
+  },
+  {
+    "id": 49,
+    "category": "deer",
+    "file_path": "data/corpus/deer/deer_09.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:015_Wild_Red_Deer_Switzerland_Photo_by_Giles_Laurent.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:015 Wild Red Deer Switzerland Photo by Giles Laurent.jpg"
+  },
+  {
+    "id": 50,
+    "category": "deer",
+    "file_path": "data/corpus/deer/deer_10.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:017_Young_Red_Deer_in_the_Aletsch_Forest_Nature_Reserve_(Switzerland)_Photo_by_Giles_Laurent.jpg",
+    "license": "CC BY-SA 4.0",
+    "title": "File:017 Young Red Deer in the Aletsch Forest Nature Reserve (Switzerland) Photo by Giles Laurent.jpg"
+  }
+]

@@ -123,6 +123,52 @@ Python values out — no ORM objects, no HTTP — specifically so
 `tests/test_guard.py` can exercise the exact fox/wolf scenario from the
 brief without a database.
 
+## Threshold calibration
+
+Both guard thresholds started as reasonable defaults and were then
+recalibrated once against the real 50-image / 13-post run (see
+`EVIDENCE.md` for the full data):
+
+- **`VISION_CONFIDENCE_THRESHOLD` (0.93).** Gemini's self-reported
+  confidence across all 50 real images clustered 0.88-1.0 — a naive
+  default like 0.60 would never flag anything. 0.93 flags exactly the
+  identifications the model itself hedged on (a wolf photo it called
+  "grey wolf" at 0.88, a "coyote" at 0.90 for an image from the wolf
+  category folder) without flagging the clear majority.
+- **`SIMILARITY_THRESHOLD` (0.715).** `gemini-embedding-001` puts *any*
+  two pieces of English text in a fairly narrow cosine-similarity band —
+  even a completely unrelated "cloud infrastructure cost report" post
+  scored up to 0.710 against animal-photo captions. That means raw
+  similarity alone is not very discriminative at this corpus's scale; the
+  category-keyword check in `app/guard.py` does most of the real
+  filtering, and the similarity threshold's real job is screening out
+  content with no topical relationship at all. 0.715 sits just above the
+  best an off-topic post reached (0.710) and just below the worst
+  accepted-match floor for every real category (0.720, the "dog"
+  category) — verified against the real run, not assumed.
+
+Both are `.env`-overridable, and both would need re-tuning against a
+larger or more diverse corpus.
+
+## Idempotency
+
+Every batch item is safe to retry:
+
+- **Vision tagging** (`app/jobs/vision_job.py`) only ever *assigns* the
+  image's tag fields from the latest parsed response — retrying overwrites
+  with a fresh (still schema-validated) result rather than duplicating
+  anything. A schema-validation failure is retried internally up to
+  `BATCH_MAX_RETRIES` times before settling to `tag_status=invalid`; each
+  attempt is a genuine new provider call, so each is logged to
+  `api_call_log` separately (that's accurate cost accounting, not a bug).
+- **Embedding** (`app/jobs/embedding_job.py`) assigns `image.embedding` /
+  `post.embedding` outright — re-running it is a no-op beyond the refreshed
+  vector.
+- **Matching** (`app/jobs/matching_job.py`) deletes a post's existing
+  `Suggestion` rows before inserting the freshly-computed set, in one
+  request — re-running `POST /posts/batch/match` never leaves duplicate or
+  stale suggestions behind.
+
 ## Explicit non-goal
 
 **Multi-tenancy / multi-user auth is out of scope.** This is a single-

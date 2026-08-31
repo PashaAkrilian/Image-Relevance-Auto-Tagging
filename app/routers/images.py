@@ -38,9 +38,15 @@ def trigger_vision_batch(
 ):
     """Kick off the vision batch job (structured tagging) as a background
     task -- returns immediately, never blocks the request."""
-    image_ids = [row.id for row in db.query(Image.id).all()]
+    # Only (re-)classify images that don't already have a durable tag
+    # decision -- re-running this endpoint resumes instead of re-spending
+    # quota on images already tagged VALID/FLAGGED.
+    image_ids = [
+        row.id
+        for row in db.query(Image.id).filter(Image.tag_status == TagStatus.PENDING).all()
+    ]
     if not image_ids:
-        raise HTTPException(status_code=400, detail="no images to classify; run the seed script first")
+        raise HTTPException(status_code=400, detail="no pending images to classify")
 
     def _run():
         run_batch(
@@ -61,12 +67,15 @@ def trigger_embedding_batch(
     db: Session = Depends(get_db),
     settings: Settings = Depends(get_settings),
 ):
+    # Resumable: only (re-)embed images that don't already have a vector.
     image_ids = [
         row.id
-        for row in db.query(Image.id).filter(Image.tag_status != TagStatus.INVALID).all()
+        for row in db.query(Image.id)
+        .filter(Image.tag_status != TagStatus.INVALID, Image.embedding.is_(None))
+        .all()
     ]
     if not image_ids:
-        raise HTTPException(status_code=400, detail="no eligible images to embed; run vision classification first")
+        raise HTTPException(status_code=400, detail="no eligible images left to embed")
 
     def _run():
         run_batch(

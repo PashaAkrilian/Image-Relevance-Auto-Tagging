@@ -39,6 +39,34 @@ and what a reviewer should know about how the code came to be.
   on this shared dev machine. `docker-compose.yml` maps the db service to
   host port `5433` instead (internal container-to-container traffic on the
   Docker network is unaffected and still uses 5432).
+- **`gemini-3.6-flash` has a 20-requests/day free-tier quota.** Discovered
+  mid-run: the vision batch job succeeded on 18/50 images, then every
+  remaining call returned `429 RESOURCE_EXHAUSTED ... limit: 20 ...
+  GenerateRequestsPerDayPerProjectPerModel-FreeTier`. Switched the default
+  vision model to `gemini-3.1-flash-lite`, which has a materially higher
+  free-tier quota and classified the other 32 images with zero failures.
+  This also motivated making `POST /images/batch/classify` resumable
+  (only queries `tag_status=pending` images) instead of always re-queuing
+  everything — see `app/routers/images.py`.
+- **A transient DNS blip mid-embedding-batch** (`[Errno -3] Temporary
+  failure in name resolution`, this dev sandbox's network, not Gemini)
+  failed 11/50 image embeddings after 3 retries each. Made
+  `POST /images/batch/embed` and `POST /posts/batch/embed` resumable the
+  same way (only queries rows with `embedding IS NULL`) and re-ran; all 11
+  succeeded on retry with no code changes needed — this is the
+  idempotency design in `DESIGN.md` actually being exercised, not just
+  asserted.
+- **`SIMILARITY_THRESHOLD` default (0.55) was too permissive.** Once a
+  deliberately off-topic "cloud infrastructure" post was pushed through
+  the live pipeline to prove out the "no confident match" behavior (PROBE
+  4), it scored 0.71 similarity against an unrelated animal photo and got
+  *accepted* — `gemini-embedding-001` puts most English text pairs in a
+  fairly narrow cosine-similarity band, so 0.55 was never actually
+  screening anything out. Recalibrated to 0.715 against the real observed
+  distribution (min accepted-match similarity across every real category
+  vs. the off-topic post's best score) — see `DESIGN.md` "Threshold
+  calibration". Re-ran the eval script afterward to confirm the 12/12
+  labeled posts were unaffected.
 
 ## Deliberate deviation from the brief, logged for transparency
 

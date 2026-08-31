@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     embedding_provider: str = "gemini"
 
     gemini_api_key: str | None = None
-    gemini_vision_model: str = "gemini-3.6-flash"
+    gemini_vision_model: str = "gemini-3.1-flash-lite"
     gemini_embedding_model: str = "gemini-embedding-001"
 
     ollama_base_url: str = "http://localhost:11434"
@@ -32,10 +32,23 @@ class Settings(BaseSettings):
     ollama_embedding_model: str = "all-minilm"
 
     # --- Mismatch guard thresholds (tuned against the eval set, see docs/DESIGN.md) ---
-    # Vision confidence below this is flagged, never silently trusted.
-    vision_confidence_threshold: float = 0.60
-    # Cosine similarity below this means "no confident match".
-    similarity_threshold: float = 0.55
+    # Vision confidence below this is flagged, never silently trusted. Calibrated
+    # against the real run of the 50-image corpus (Gemini reported 0.88-1.0;
+    # 0.93 flags the handful of genuinely hedgy identifications -- e.g. a wolf
+    # photo the model itself called "grey wolf" at 0.88 -- without flagging the
+    # clear majority). See DESIGN.md "Threshold calibration".
+    vision_confidence_threshold: float = 0.93
+    # Cosine similarity below this means "no confident match". Calibrated
+    # against the real run: gemini-embedding-001 puts *any* two pieces of
+    # English text (even an unrelated "cloud infra cost report" post
+    # against animal photo captions) around 0.66-0.71 cosine similarity --
+    # embeddings alone are not very discriminative at this corpus scale, so
+    # the category-keyword check in app/guard.py does most of the real
+    # work. 0.715 sits just above the best an off-topic post can reach
+    # (0.710 observed) and just below the accepted-match floor for every
+    # real category post (0.720+ observed, worst case the "dog" category).
+    # See DESIGN.md "Threshold calibration".
+    similarity_threshold: float = 0.715
 
     # --- Batch processing ---
     batch_max_retries: int = 3

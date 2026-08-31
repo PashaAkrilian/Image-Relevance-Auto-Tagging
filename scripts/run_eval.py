@@ -34,29 +34,32 @@ def main() -> None:
         correct = 0
         rows = []
         for post in posts:
-            total += 1
             top = (
                 db.query(Suggestion)
                 .filter(Suggestion.post_id == post.id, Suggestion.status == SuggestionStatus.ACCEPTED, Suggestion.rank == 1)
                 .first()
             )
-            if top is None or top.image is None:
-                rows.append((post.title, post.expected_category, "NO MATCH", False))
+            got_category = top.image.category if (top is not None and top.image is not None) else "NO MATCH"
+
+            if post.expected_category is None:
+                # Deliberate no-match probe post (PROBE 4): correct outcome is
+                # "NO MATCH", and it's reported separately, not mixed into precision.
+                rows.append((post.title, "(no-match probe)", got_category, got_category == "NO MATCH"))
                 continue
 
-            got_category = top.image.category
+            total += 1
             is_correct = got_category == post.expected_category
             correct += int(is_correct)
             rows.append((post.title, post.expected_category, got_category, is_correct))
 
         precision = correct / total if total else 0.0
 
-        print(f"{'POST':45} {'EXPECTED':10} {'GOT':10} {'OK'}")
-        print("-" * 80)
+        print(f"{'POST':45} {'EXPECTED':17} {'GOT':10} {'OK'}")
+        print("-" * 87)
         for title, expected, got, ok in rows:
-            print(f"{title[:44]:45} {expected or '-':10} {got:10} {'✓' if ok else '✗'}")
-        print("-" * 80)
-        print(f"Top-1 precision: {correct}/{total} = {precision:.2%}")
+            print(f"{title[:44]:45} {expected or '-':17} {got:10} {'✓' if ok else '✗'}")
+        print("-" * 87)
+        print(f"Top-1 precision (labeled posts only): {correct}/{total} = {precision:.2%}")
     finally:
         db.close()
 

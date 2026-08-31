@@ -7,3 +7,4 @@ data/corpus/
 *.egg-info/
 .DS_Store
 node_modules/
+.claude/

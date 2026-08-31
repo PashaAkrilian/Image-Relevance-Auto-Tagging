@@ -60,6 +60,12 @@
       "title": "The Antlers of the Stag: A Red Deer Life Cycle",
       "body": "A red deer stag grows and sheds a new set of antlers every year, with each generation typically larger than the last until the animal reaches old age. The annual antler cycle of the deer is driven by seasonal changes in testosterone.",
       "expected_category": "deer"
+    },
+    {
+      "title": "Quarterly Cloud Infrastructure Cost Report",
+      "body": "Our cloud infrastructure spend grew 14% quarter over quarter, driven mainly by increased compute usage in the data warehousing pipeline and a new set of Kubernetes clusters in the EU region.",
+      "expected_category": null,
+      "_note": "PROBE 4 fixture: no image in the corpus should ever be a confident match for this post. expected_category=null tells scripts/run_eval.py the correct outcome is 'no confident match', not a category label."
     }
   ]
 }

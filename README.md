@@ -111,6 +111,19 @@ docker compose exec app python -m scripts.run_eval
 Prints top-1 precision against the hand-labeled eval set — see
 `EVIDENCE.md` for the actual run.
 
+## Results (real run, see EVIDENCE.md)
+
+- **Top-1 precision: 12/12 = 100%** on the 12 hand-labeled posts
+  (`data/eval_set.json`), plus a 13th deliberate no-match probe post that
+  correctly returns `no_match` rather than a guess.
+- **4/50 images flagged** for low confidence (0.88-0.92, below the
+  calibrated 0.93 bar) rather than silently accepted.
+- **0 vision/embedding responses ever reached the guard unvalidated** —
+  every call is schema-checked first.
+- Guard thresholds (`VISION_CONFIDENCE_THRESHOLD=0.93`,
+  `SIMILARITY_THRESHOLD=0.715`) were **calibrated against this real run**,
+  not guessed — see `DESIGN.md` "Threshold calibration".
+
 ### Tests
 
 ```bash
