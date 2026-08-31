@@ -26,7 +26,14 @@ class GeminiVisionProvider(VisionProvider):
     def __init__(self, settings: Settings):
         if not settings.gemini_api_key:
             raise RuntimeError("GEMINI_API_KEY is not set; cannot use the gemini vision provider.")
-        self._client = genai.Client(api_key=settings.gemini_api_key)
+        # Explicit request timeout: without one, a stalled connection can hang
+        # the batch runner's worker thread indefinitely instead of failing
+        # and letting app/jobs/runner.py's retry loop take over. Hit this for
+        # real mid-build in a flaky-network sandbox -- see BUILDLOG.md.
+        self._client = genai.Client(
+            api_key=settings.gemini_api_key,
+            http_options=types.HttpOptions(timeout=45_000),  # milliseconds
+        )
         self._model = settings.gemini_vision_model
         self._cost_per_call = settings.gemini_vision_cost_per_call
 

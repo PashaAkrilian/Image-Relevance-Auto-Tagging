@@ -68,6 +68,44 @@ and what a reviewer should know about how the code came to be.
   calibration". Re-ran the eval script afterward to confirm the 12/12
   labeled posts were unaffected.
 
+## Docker Compose validation run (the actual documented path)
+
+Everything above was run against a local dev venv + a standalone Postgres
+container while iterating. Once the code settled, `docker compose up
+--build` was run for real on a clean state (containers removed, no
+pre-built image) to prove the README's own instructions work verbatim:
+
+- Build hit the *same* transient sandbox-DNS failure described above,
+  this time mid-`pip install` inside the image (`files.pythonhosted.org
+  ... Temporary failure in name resolution`). Docker's layer cache made
+  the retry cheap — the `apt-get` layer didn't need to redownload.
+- Once up, a real classify batch run **hung indefinitely** on request #4
+  with no error logged at all — network from inside the container tested
+  fine moments later (`httpx.get(...)` → 200), so the stuck request was a
+  one-off stalled connection that the `google-genai` SDK's own client had
+  no timeout to give up on. Root-caused and fixed: both
+  `GeminiVisionProvider` and `GeminiEmbeddingProvider` now construct their
+  `genai.Client` with an explicit `http_options=types.HttpOptions(timeout=
+  45_000)` so a stalled connection surfaces as a real, retryable exception
+  within `app/jobs/runner.py`'s retry loop instead of parking a worker
+  thread forever. Rebuilt and re-ran end-to-end after the fix: 50/50
+  images classified, 63/63 embeddings, 12/12 eval precision, 19/19 tests
+  — all clean, with one real `429 RESOURCE_EXHAUSTED` (per-minute rate
+  limit, not the earlier per-day quota) cleared by simply calling `POST
+  /images/batch/classify` again a few seconds later, proving the
+  resumable-batch design under real pressure a second time.
+- **Confidence self-reports are not stable across runs.** The
+  `gemini-3.1-flash-lite` run through Docker reported confidence 0.95-1.0
+  across all 50 images — noticeably tighter/higher than the mixed-model
+  local run's 0.88-1.0 that `EVIDENCE.md` documents (which used
+  `gemini-3.6-flash` for the first 18 images before the quota switch).
+  `EVIDENCE.md` keeps the original run's numbers because they're the more
+  complete demonstration (they include real flagged low-confidence
+  images); this Docker run is documented here as a second, independent
+  confirmation that the *pipeline* is correct, not a replacement data set.
+  Practical takeaway, also noted in `DESIGN.md`: `VISION_CONFIDENCE_
+  THRESHOLD` is a per-model, per-run calibration, not a universal constant.
+
 ## Deliberate deviation from the brief, logged for transparency
 
 - **Image source: Wikimedia Commons instead of Unsplash/Pexels.** Both

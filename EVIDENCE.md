@@ -9,6 +9,14 @@ this run (a vision model's tiny free-tier daily quota, and a transient DNS
 blip mid-embedding-batch) — both are also proof that the retry/resume
 machinery below is real, not theoretical.
 
+**Independently re-confirmed via the actual documented path**: a clean
+`docker compose up --build` + `docker compose exec app python -m
+scripts.seed_corpus` + the same batch/eval calls, from scratch, against a
+fresh containerized Postgres, reproduced 50/50 images classified, 63/63
+embeddings, **12/12 (100%) eval precision**, and 19/19 tests passing (see
+`BUILDLOG.md` "Docker Compose validation run" — this run also surfaced and
+fixed a real client-timeout gap in the vision/embedding providers).
+
 ---
 
 ## AI processing
